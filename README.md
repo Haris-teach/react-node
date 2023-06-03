@@ -1,38 +1,71 @@
-### install node modules
 
-cmd:  npm i
+# Simple Notes App
 
+## Description
 
-### Nodejs server
+Simple note app that can help user to create and update notes.
 
-1- cd nodejs
-2- npx nodemon server.js
+## Technologies
+- React.js
+- Node.js
+- PostgreSQL
 
+## Features
 
-before run the server
+- User authentication with Login and Register pages
+- Profile page where the user can change their first and last names
+- Dashboard page displaying a list of Notes
+- Add, edit, or delete notes functionality
+- Search functionality by note title
+- Filter functionality by Created or Updated date
 
-add .env file 
+## Installation
 
- HOST=  your DB Host
-  USER = DB USert name
-  PASSWORD =  DB password
-  DB = DB name
-  DIALECT = postgres 
-  DB_PORT = postgreql port number
-  JWTTOKEN = unique JwT token
+To run this project locally, follow the steps below:
 
+### Prerequisites
 
-## reactjs server
+- Node.js (version 16.14.0)
+- NPM (version 8.3.1)
 
-1- npm run start
+### Clone the Repository
 
-app has devided into two phase auth and dashboard
+```bash
+git clone https://github.com/your-username/your-project.git
 
-user can create itself
-then
-sign with the email and password
+To run frontend,
+cd your-project
+    npm install
 
+cd backend
+npm install
 
+**Set Up the Environment Variables**
+Create a .env file in the backend directory.
 
+Define the following environment variables in the .env file:
 
+    HOST=your_DB_Host
+    USER=DB_Username
+    PASSWORD=DB_Password
+    DB=DB_Name
+    DIALECT=postgres
+    DB_PORT=PostgreSQL_Port_Number
+    JWTTOKEN=unique_JWT_token
+
+**Start the Development Servers**
+**Frontend**
+bash
+Copy code
+
+    cd frontend
+    npm start
+
+    Backend
+    bash
+    Copy code
+    cd backend
+    npm start
+
+The React frontend will be accessible at http://localhost:3000, and the Node backend will be running on http://localhost:4000.
 
