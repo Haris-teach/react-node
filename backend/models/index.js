@@ -8,8 +8,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.user = require('../models/user.model')(sequelize, DataTypes, bcrypt);
-db.note = require("../models/notes.model")(sequelize, DataTypes, bcrypt);
+db.user = require('./user.model')(sequelize, DataTypes, bcrypt);
+db.note = require("./notes.model")(sequelize, DataTypes, bcrypt);
 
 db.user.hasMany(db.note, { foreignKey: "userId" });
 db.note.belongsTo(db.user);
