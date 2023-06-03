@@ -60,7 +60,7 @@ const LoginUser= async (req, res) => {
     } else {
       var passwordIsValid = await bcrypt.compare(password, user.password);
 
-      let token = jwt.sign({ id: user.id }, 'JWTKey');
+      let token = jwt.sign({ id: user.id }, process.env.JWTTOKEN);
 
       if (passwordIsValid) {
        

@@ -1,5 +1,9 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+
+
+
+
 exports.auth = (req, res, next) => {
   // const token = req.header('authToken');
   var token = req.body.token || req.query.token || req.header("Authorization");
@@ -14,7 +18,7 @@ exports.auth = (req, res, next) => {
     });
   }
   try {
-    const payload = jwt.verify(token, "JWTKey");
+    const payload = jwt.verify(token, process.env.JWTTOKEN);
     req.user = payload;
     next();
   } catch (e) {
