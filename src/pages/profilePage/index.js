@@ -1,14 +1,37 @@
 import React, { useState } from "react";
-import "../style.css"; // Import the CSS file
+import "../authPages/style.css"; // Import the CSS file
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+ 
 
-  const handleSubmit = (e) => {
+  const userData= JSON.parse(localStorage.getItem('userData'))
+
+
+   const [firstName, setFirstName] = useState(userData?.user?.firstName);
+   const [lastName, setLastName] = useState(userData?.user?.lastName);
+   const [isCheck, setIsCheck] = useState(false);
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Perform save logic here
-    console.log("Profile saved");
+  
+
+   let data={
+    firstName:firstName,
+    lastName:lastName
+   }
+
+    let res = await axios.put(" http://localhost:8080/api/v1/update", data, {
+      headers: {
+        "Content-Type": "application/json", // Example header
+        Authorization: `Bearer ${userData?.authToken}`,
+      },
+    });
+    if(res.status===200){
+     setIsCheck(true)
+    }
+
   };
 
   return (
@@ -35,6 +58,11 @@ const ProfilePage = () => {
             required
           />
         </div>
+        {isCheck && <p>info successfully updated!</p>}
+
+        <Link to="/">
+          <p>back to dashboard</p>
+        </Link>
         <button type="submit">Save</button>
       </form>
     </div>

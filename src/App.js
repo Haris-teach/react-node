@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/authPages/loginPage";
 import RegisterPage from "./pages/authPages/signUp";
-import ProfilePage from "./pages/authPages/profilePage";
+import ProfilePage from "./pages/profilePage";
 import React,{ useState } from "react";
 import Dashboard from "./pages/dashboard";
 

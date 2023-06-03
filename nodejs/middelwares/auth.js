@@ -18,7 +18,7 @@ exports.auth = (req, res, next) => {
     });
   }
   try {
-    const payload = jwt.verify(token, process.env.JWTTOKEN);
+    const payload = jwt.verify(token, "JWTKey");
     req.user = payload;
     next();
   } catch (e) {

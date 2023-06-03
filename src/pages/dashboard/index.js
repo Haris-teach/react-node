@@ -3,8 +3,11 @@ import './style.css'
 import Spinner from "../../components/spinner";
 import axios from "axios";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = ({onLogout}) => {
+
+  const navigate = useNavigate()
 
 const [isLoading , setIsLoading] = useState(false)
   const [notes, setNotes] = useState([]);
@@ -225,6 +228,7 @@ if(res.status===200){
     <div className="dashboard-container">
       <Spinner loading={isLoading} />
       <h2 className="dashboard-heading">Dashboard</h2>
+      <button onClick={()=>navigate('profile')} type="btn">Profile Update</button>
 
       <div className="search-container">
         <label htmlFor="search">Search by Title:</label>

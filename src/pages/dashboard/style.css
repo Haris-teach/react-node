@@ -50,6 +50,8 @@
 
 .search-container {
     margin-bottom: 20px;
+    margin-top: 10px;
+    
 }
 
 .search-container label {
@@ -80,3 +82,5 @@ input[type='text'] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
